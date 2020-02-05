@@ -48,4 +48,7 @@ function bracket_chk($arr) {
 }
 
 echo var_dump(valid("[]{}()[[]]"));
+echo var_dump(valid("[{()}]"));
+echo var_dump(valid("[{)]"));
+echo var_dump(valid("[{([{]})}]"));
 ?>

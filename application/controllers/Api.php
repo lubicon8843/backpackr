@@ -149,7 +149,14 @@ class Api extends RestController
 		}else{
 			$this->validation->set_data($post_data);
 
-			$vali_arr = array ('name' => array ('trim|required|max_length[20]' , '/^[가-힣a-zA-Z]+$/u' , 'Only Hanguel or English') , 'nickname' => array ('trim|required|max_length[30]' , '/^[a-z]+$/' , 'Only small letter English') , 'password' => array ('trim|required|min_length[10]' , '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]+$/' , 'Include at least one uppercase letter, one lowercase letter, one special character, and one number.') , 'hp' => array ('trim|required|numeric|max_length[20]' , '' , 'Only Hanguel or English') , 'mail' => array ('trim|required|valid_email|max_length[100]' , '' , 'Only Hanguel or English') , 'gender' => array ('trim|max_length[1]' , '/^[F|M]+$/' , 'Gender is only  F or M') , 'recommend' => array ('trim|valid_email|max_length[100]' , '' , 'Only Hanguel or English'));
+			$vali_arr = array (
+				'name' => array ('trim|required|max_length[20]' , '/^[가-힣a-zA-Z]+$/u' , 'Only Hanguel or English') ,
+				'nickname' => array ('trim|required|max_length[30]' , '/^[a-z]+$/' , 'Only small letter English') ,
+				'password' => array ('trim|required|min_length[10]' , '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]+$/' , 'Include at least one uppercase letter, one lowercase letter, one special character, and one number.') ,
+				'hp' => array ('trim|required|numeric|max_length[20]' , '' , 'Only Hanguel or English') ,
+				'mail' => array ('trim|required|valid_email|max_length[100]' , '' , 'Only Hanguel or English') ,
+				'gender' => array ('trim|max_length[1]' , '/^[F|M]+$/' , 'Gender is only  F or M') ,
+				'recommend' => array ('trim|valid_email|max_length[100]' , '' , 'Only Hanguel or English'));
 
 			foreach ( $vali_arr as $key => $val ){
 				if( ($mode == "up" && array_key_exists($key , $post_data)) || ($mode == "in") ){

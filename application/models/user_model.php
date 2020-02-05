@@ -47,6 +47,7 @@ class User_model extends CI_Model
 
 	public function users_ins_up($parm)
 	{
+		/*회원 정보 수정, 삭제*/
 
 		$now_date = date('Y-m-d H:i:s');
 
@@ -85,9 +86,10 @@ class User_model extends CI_Model
 
 	public function users_delete($idx)
 	{
+		/*회원정보 삭제*/
 
 		// 현재시간
-		$now_date = date('Y-m-d H:m:s');
+		$now_date = date('Y-m-d H:i:s');
 
 		$search_qry_ = "select * from users where no= '".$idx."'";
 		$search_qry = $this->db->query($search_qry_);
@@ -113,7 +115,8 @@ class User_model extends CI_Model
 
 	public function recommend_chk($mail)
 	{
-		//추천인 체크
+		/*추천인 정보 조회*/
+
 		$status = array ("recommend_no" => "" , "mode" => "Y");;
 
 		$search_qry_ = "select no from users where mail = '".$mail."'";
